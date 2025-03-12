@@ -2,4 +2,5 @@ class StringCalculator:
     def add(self, numbers):
         if numbers == "":
             return 0
-        return int(numbers)  # Convert string to int
+        # Split string of comma separated numbers and add them
+        return sum(int(n) for n in numbers.split(","))
