@@ -22,6 +22,11 @@ class TestStringCalculator(unittest.TestCase):
         result = calc.add("1,2,3,4")
         self.assertEqual(result, 10)
 
+    def test_newlines_between_numbers(self):
+        calc = StringCalculator()
+        result = calc.add("1\n2,3")
+        self.assertEqual(result, 6)
+
 
 if __name__ == "__main__":
     unittest.main()
