@@ -2,4 +2,4 @@ class StringCalculator:
     def add(self, numbers):
         if numbers == "":
             return 0
-        return 0  # Temporary, to pass
+        return int(numbers)  # Convert string to int
