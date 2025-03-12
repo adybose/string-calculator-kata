@@ -10,4 +10,7 @@ class StringCalculator:
         if numbers == "":
             return 0
         nums = [int(n) for n in self._get_numbers(numbers)]
+        negatives = [n for n in nums if n < 0]
+        if negatives:
+            raise ValueError(f"negative numbers not allowed {negatives[0]}")
         return sum(nums)
