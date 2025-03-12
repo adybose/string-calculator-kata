@@ -12,6 +12,11 @@ class TestStringCalculator(unittest.TestCase):
         result = calc.add("1")
         self.assertEqual(result, 1)
 
+    def test_two_numbers_comma_separated(self):
+        calc = StringCalculator()
+        result = calc.add("1,5")
+        self.assertEqual(result, 6)
+
 
 if __name__ == "__main__":
     unittest.main()
