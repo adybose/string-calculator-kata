@@ -1,11 +1,13 @@
 class StringCalculator:
+    def _get_numbers(self, numbers):
+        if numbers.startswith("//"):
+            delimiter = numbers[2]
+            numbers = numbers[4:]  # Skip initial "//[delimiter]\n"
+            return numbers.split(delimiter)
+        return numbers.replace("\n", ",").split(",")
+
     def add(self, numbers):
         if numbers == "":
             return 0
-        if numbers.startswith("//"):
-            delimiter = numbers[2]
-            numbers = numbers[4:]  # Skip "//[delimiter]\n"
-            return sum(int(n) for n in numbers.split(delimiter))
-        numbers = numbers.replace("\n", ",")
-        # Split string of comma separated numbers and add them
-        return sum(int(n) for n in numbers.split(","))
+        nums = [int(n) for n in self._get_numbers(numbers)]
+        return sum(nums)
